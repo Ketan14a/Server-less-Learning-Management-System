@@ -1,0 +1,5 @@
+# Function dependencies, for example:
+# package>=version
+mysqlclient==1.4.6
+PyMySQL==0.9.3
+

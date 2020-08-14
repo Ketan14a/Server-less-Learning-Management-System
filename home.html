@@ -1,0 +1,135 @@
+<html>
+<head> 
+<title>LMS User Home</title>
+<link rel="stylesheet" type="text/css" href="./lmsStyle.css" />
+
+</head>
+
+<body>
+<h2>Login to Learning Management System</h2>
+<a href="./signup.html" style="width:auto;">Sign Up</a>
+
+    <div class="container" id="loginForm" style="display:block">
+     
+	  <p id="error" style="display:none; color:Red">Error in Login details. Please try again</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email"  id="email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
+
+      <button class="signupbtn" onclick="login()" >Login</button>
+      
+    </div>
+	
+	<div class="container" id="twoFactor" style="display:none">
+	<p id="error1" style="display:none; color:Red">Error in two factor details. Please try again</p>
+		  <input type="hidden" id="question" />
+		  <label id="ques"><b>Choose a security question</b></label>
+		  
+		  <input type="text" placeholder="Type your answer" id="answer" name="answer" required>
+
+		  <button  onclick="confirm()" >Confirm</button>
+
+	</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('mod');
+
+// When the user clicks anywhere outside of the modal, close it
+/*window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}*/
+
+function login(){
+	var email = document.getElementById('email').value;
+	var psw = document.getElementById('psw').value;
+	
+	var myBody = {'email': email, 'password': psw}
+	console.log('email:'+JSON.stringify(myBody))
+	loginUser(myBody)
+}
+
+
+const loginUser =  (requestBody) => {
+
+    fetch('https://cors-anywhere.herokuapp.com/https://us-central1-serverless-auth-prj.cloudfunctions.net/serverlerss-lms-auth', {
+    method: 'POST',
+    body: JSON.stringify(requestBody), // string or object
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'    }
+  }).then((res) => res.json()).then((result)=>{
+  console.log('check')
+	if(result["status"]!= undefined && result["status"]==false){
+		document.getElementById("error").style.display="block"
+		document.getElementById("error").innerText  = result["message"]
+		return result
+	}
+    if(result) {
+		
+		  document.getElementById('ques').innerText = result["question"];
+		  document.getElementById('question').innerText = result["question"];
+		  document.getElementById('loginForm').style.display="none";
+		  document.getElementById('twoFactor').style.display="block";
+		  localStorage.setItem('idToken',result["idToken"]);
+		  localStorage.setItem('localId',result["localId"]);
+		  localStorage.setItem('email',result["email"]);
+		  localStorage.setItem('refreshToken',result["refreshToken"]);
+		  
+		 
+      return result;
+    } else {
+      throw Error(`Request rejected with status ${result.status}`);
+    }
+  }, (error) =>{console.log('erro')});
+
+
+};
+
+function confirm(){
+	var email = document.getElementById('email').value;
+	var question = document.getElementById('ques').value;
+	var answer = document.getElementById('answer').value;
+	
+	var myBody = {'email': email, 'question': question, 'answer':answer}
+	confirmUser(myBody)
+}
+
+const confirmUser =  (requestBody) => {
+
+    fetch('https://cors-anywhere.herokuapp.com/https://7n9cybah64.execute-api.us-east-1.amazonaws.com/default/twofactor-auth', {
+    method: 'POST',
+    body: JSON.stringify(requestBody), // string or object
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'    }
+  }).then((res) => res.json()).then((result)=>{
+  console.log('check')
+	if(result["status"]!= undefined && result["status"]==false){
+		document.getElementById("error").style.display="block"
+		document.getElementById("error").innerText  = result["message"]
+		return result
+	}
+    if(result) {
+		//window.location.href = "./home.html";
+		 localStorage.setItem('firstname',result["firstname"]);
+		 localStorage.setItem('lastname', result["lastname"]);
+		 localStorage.setItem('role',result["role"]);
+		 localStorage.setItem('institution',result["institution"]);
+		 window.location.href = "./Authhome.html";
+      return result;
+    } else {
+      document.getElementById("error1").style.display="block"
+	  document.getElementById("error1").innerText  = "2-factor authentication failed"
+	  return result
+    }
+  }, (error) =>{console.log('erro')});
+};
+
+</script>
+
+</body>
+</html>

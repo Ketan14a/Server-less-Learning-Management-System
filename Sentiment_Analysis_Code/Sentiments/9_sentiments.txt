@@ -1,0 +1,8 @@
+Are you a programmer?:NEUTRAL
+I am a programmer:NEUTRAL
+What languages do you like to use?:NEUTRAL
+I use Python, Java and C++ quite often.:NEUTRAL
+I use Python quite a bit myself.:NEUTRAL
+I'm not incredibly fond of Java.:NEGATIVE
+What annoys you?:NEGATIVE
+It has many inconsistencies.:NEGATIVE

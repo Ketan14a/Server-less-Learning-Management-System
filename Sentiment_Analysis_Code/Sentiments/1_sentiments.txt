@@ -1,0 +1,13 @@
+Hello:NEUTRAL
+Hi:NEUTRAL
+How are you doing?:NEUTRAL
+I am doing well.:POSITIVE
+That is good to hear:POSITIVE
+Yes it is.:POSITIVE
+Can I help you with anything?:NEUTRAL
+Yes, I have a question.:NEUTRAL
+What is your question?:NEUTRAL
+Could I borrow a cup of sugar?:NEUTRAL
+I'm sorry, but I don't have any.:NEGATIVE
+Thank you anyway:POSITIVE
+No problem:POSITIVE

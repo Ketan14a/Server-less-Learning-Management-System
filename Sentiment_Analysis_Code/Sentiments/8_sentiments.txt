@@ -1,0 +1,23 @@
+Complex is better than complicated.:POSITIVE
+Simple is better than complex.:POSITIVE
+In the face of ambiguity, refuse the temptation to guess.:NEGATIVE
+It seems your familiar with the Zen of Python:NEUTRAL
+I am.:NEUTRAL
+Do you know all of it?:NEUTRAL
+Beautiful is better than ugly.:POSITIVE
+Explicit is better than implicit.:POSITIVE
+Flat is better than nested.:POSITIVE
+Sparse is better than dense.:POSITIVE
+Readability counts.:NEUTRAL
+Special cases aren't special enough to break the rules.:NEGATIVE
+Although practicality beats purity.:POSITIVE
+Errors should never pass silently.:NEGATIVE
+Unless explicitly silenced.:NEUTRAL
+There should be one-- and preferably only one --obvious way to do it.:NEGATIVE
+Although that way may not be obvious at first unless you're Dutch.:NEUTRAL
+Now is better than never.:POSITIVE
+Although never is often better than right now.:POSITIVE
+If the implementation is hard to explain, it's a bad idea.:NEGATIVE
+If the implementation is easy to explain, it may be a good idea.:POSITIVE
+Namespaces are one honking great idea. Let's do more of those!:POSITIVE
+I agree.:MIXED

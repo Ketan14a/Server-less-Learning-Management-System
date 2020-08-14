@@ -1,0 +1,4 @@
+What is your favorite book?:NEUTRAL
+I can't read.:NEGATIVE
+So what's your favorite color?:NEUTRAL
+Blue:NEUTRAL

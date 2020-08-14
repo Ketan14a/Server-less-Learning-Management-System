@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	{% for post in myPosts %}
+		
+		{% for p in post %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <p class="article-content">{{ p }}</p>
+		  </div>
+		</article>
+		{% endfor %}
+		<hr/>
+	{% endfor %}
+{% endblock content %}
+

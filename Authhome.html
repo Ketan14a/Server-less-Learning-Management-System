@@ -1,0 +1,133 @@
+<html>
+<head> 
+<title>LMS User Home</title>
+<link rel="stylesheet" type="text/css" href="./lmsStyle.css" />
+
+<script>
+
+function active(){
+	var email = localStorage.getItem('email');
+	
+	var myBody = {'email': email}
+	activeUsers(myBody)
+	
+	}
+	const activeUsers =  (requestBody) => {
+
+    fetch('https://cors-anywhere.herokuapp.com/https://38d9ktnb3l.execute-api.us-east-1.amazonaws.com/default/show-loggedin-users', {
+    method: 'POST',
+    body: JSON.stringify(requestBody), // string or object
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'    }
+  }).then((res) => res.json()).then((result)=>{
+  console.log('check')
+	
+    if(result) {
+		var html = "<table border='1|1'>";
+		for (var i = 0; i < result.length; i++) {
+			html+="<tr>";
+			html+="<td>"+result[i].firstname+"</td>";
+			html+="<td>"+result[i].lastname+"</td>";
+			html+="<td>"+result[i].email+"</td>";
+			html+="<td>"+result[i].role+"</td>";
+			html+="<td>"+result[i].institution+"</td>";
+
+			html+="</tr>";
+
+		}
+html+="</table>";
+document.getElementById("box").innerHTML = html;
+      return result;
+    } else {
+      throw Error(`Request rejected with status ${result.status}`);
+    }
+  }, (error) =>{console.log('erro')});
+
+
+};
+
+</script>
+</head>
+
+<body>
+
+<ul style="background:#F0F0F0;padding:10px;" >
+<li><a style="width:auto;"><b>Learning Management System</></a></li>
+  <li style="float:right;margin-right: 10px;"><a  href="javascript:void(0)" onclick="logout()" style="width:auto;">Sign out</a></li>
+
+  <li style="float:right;margin-right: 10px;"><a  href="javascript:void(0)" onclick="active()" style="width:auto;">Fetch active users</a></li>
+  
+
+</ul>
+
+<div id="wrapper"></div>
+<script>
+    // Storing HTML code block in a variable
+    var codeBlock = '<div class="content">' +
+                        '<h3>Hi '+localStorage.getItem('firstname')+'</h3>' +
+                        
+                    '</div>';
+    
+    // Inserting the code block to wrapper element
+    document.getElementById("wrapper").innerHTML = codeBlock
+    </script> 
+
+
+
+<div id="box"></div>
+<div>
+
+  
+  
+<a  href="http://localhost:8081/" onclick="active()" style="width:fit-content;color: white; background:black; padding:10px">Chat with active group</a> 
+<hr>
+<a  href="http://127.0.0.1:9091/"  style="width:fit-content;color: white; background:black; padding:10px">Get Chat Sentiment</a>
+<hr>
+
+<a  href="https://csci5410-project-data-processing-dgsicmdfsa-ue.a.run.app/upload"  style="width:fit-content;color: white; background:black; padding:10px">Upload Test files</a>
+<hr>
+<a  href="http://127.0.0.1:9093/"  style="width:fit-content;color: white; background:black; padding:10px">Generate File clusters</a>
+
+</div>
+<script>
+function logout(){
+var email = localStorage.getItem('email');
+var myBody = {'email': email}
+	console.log('email:'+JSON.stringify(myBody))
+	logoutUser(myBody)
+}
+
+const logoutUser =  (requestBody) => {
+
+    fetch('https://cors-anywhere.herokuapp.com/https://2dn1hybcd9.execute-api.us-east-1.amazonaws.com/default/logout', {
+    method: 'POST',
+    body: JSON.stringify(requestBody), // string or object
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'    }
+  }).then((res) => res.json()).then((result)=>{
+  console.log('check')
+	
+    if(result) {
+		 localStorage.removeItem('idToken')
+		 localStorage.removeItem('localId')
+		 localStorage.removeItem('email')
+		 localStorage.removeItem('refreshToken')
+		 localStorage.removeItem('firstname')
+		 localStorage.removeItem('lastname')
+		 localStorage.removeItem('role')
+		 localStorage.removeItem('institution')
+		 window.location.href = "./home.html";
+      return result;
+    } else {
+      throw Error(`Request rejected with status ${result.status}`);
+    }
+  }, (error) =>{console.log('erro')});
+
+
+};
+
+
+</script>
+
+</body>
+</html>

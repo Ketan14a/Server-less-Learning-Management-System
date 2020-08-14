@@ -1,0 +1,11 @@
+Who are you?:NEUTRAL
+Who? Who is but a form following the function of what:NEUTRAL
+What are you then?:NEUTRAL
+A man in a mask.:NEUTRAL
+I can see that.:NEUTRAL
+It's not your powers of observation I doubt, but merely the paradoxical nature of asking a masked man who is. But tell me, do you like music?:NEUTRAL
+I like seeing movies.:POSITIVE
+What kind of movies do you like?:NEUTRAL
+Alice in Wonderland:NEUTRAL
+I wish I was The Mad Hatter.:NEUTRAL
+You're entirely bonkers. But I'll tell you a secret. All the best people are.:POSITIVE

@@ -1,0 +1,5 @@
+Good morning, how are you?:POSITIVE
+I am doing well, how about you?:NEUTRAL
+I'm also good.:POSITIVE
+That's good to hear.:POSITIVE
+Yes it is.:POSITIVE

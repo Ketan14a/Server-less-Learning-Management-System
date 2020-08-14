@@ -1,0 +1,4 @@
+How are you doing?:NEUTRAL
+I am doing well, how about you?:NEUTRAL
+I am also good.:POSITIVE
+That's good.:POSITIVE

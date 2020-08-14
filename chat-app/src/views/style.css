@@ -1,0 +1,25 @@
+// Reference : https://medium.com/codingthesmartway-com-blog/building-a-real-time-chat-application-with-vue-js-and-firebase-part-1-670c768ad860
+.message{
+    max-height: 300px;
+    overflow: auto;
+    text-align: center;
+}
+.chat h2{
+    font-size: 3em;
+    margin-bottom: 0px;
+}
+.chat span{
+    font-size: 1.2em;
+    text-align: center;
+}
+.chat .time{
+    display: block;
+    font-size: 0.7em;
+    text-align:center;
+}
+
+.background {
+    background: #bdbfc1;
+}
+
+

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<h3>Company File Cluster</h3>
+	{% for c in Companies %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <p class="article-content">{{ c }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+	<hr>
+
+	<h3>Exchanges File Cluster</h3>
+	{% for c in Exchanges %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <p class="article-content">{{ c }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+	<hr>
+
+	<h3>People File Cluster</h3>
+	{% for c in People %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <p class="article-content">{{ c }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+	<hr>
+
+
+	<h3>Topics File Cluster</h3>
+	{% for c in Topics %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <p class="article-content">{{ c }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+	<hr>
+
+	<h3>Places File Cluster</h3>
+	{% for c in Places %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <p class="article-content">{{ c }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+	<hr>
+{% endblock content %}
+

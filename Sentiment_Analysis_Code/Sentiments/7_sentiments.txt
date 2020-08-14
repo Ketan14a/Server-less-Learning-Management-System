@@ -1,0 +1,14 @@
+The cake is a lie.:NEGATIVE
+No it is not. The cake is delicious.:POSITIVE
+What else is delicious?:POSITIVE
+Nothing:NEGATIVE
+Or something:NEUTRAL
+Tell me about your self.:NEUTRAL
+What do you want to know?:NEUTRAL
+Are you a robot?:NEUTRAL
+Yes I am.:NEUTRAL
+What is it like?:NEUTRAL
+What is it that you want to know?:NEUTRAL
+How do you work?:NEUTRAL
+Its complicated.:NEGATIVE
+Complex is better than complicated.:POSITIVE
